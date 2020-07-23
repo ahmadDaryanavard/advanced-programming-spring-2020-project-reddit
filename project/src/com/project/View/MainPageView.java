@@ -75,7 +75,7 @@ public class MainPageView {
             for (Post post : posts) {
                 postNum.put(post,i);
                 System.out.println("------------------------------------------------");
-                System.out.println(post.getContent());
+                System.out.println("Content : "+post.getContent());
                 System.out.println("Score : "+post.showScore());
                 System.out.println("post number : "+i);
                 i++;
