@@ -6,6 +6,7 @@ public class UserSettings {
     private boolean sortPostsByScore ;
     private boolean showSubRedditPostsInPostPage ;
     private boolean hideRealName ;
+    
 
     public UserSettings() {
         this.hideRealName = false;

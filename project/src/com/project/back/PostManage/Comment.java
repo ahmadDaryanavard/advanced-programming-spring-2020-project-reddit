@@ -116,7 +116,7 @@ public class Comment extends Action {
         replies.sort(new Comparator<Comment>() {
             @Override
             public int compare(Comment comment1, Comment comment2) {
-                return Integer.compare(comment2.getScore(),comment1.getScore());
+                return Integer.compare(comment1.getScore(),comment2.getScore());
             }
         });
 

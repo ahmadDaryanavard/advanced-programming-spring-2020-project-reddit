@@ -6,6 +6,7 @@ import com.project.back.UserManage.User;
 
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -70,6 +71,14 @@ public class MainPageView {
             System.out.print("\033[H\033[2J");
             System.out.flush();
             ArrayList<Post> posts = Post.userPosts(user);
+            if(user.getUserSettings().isSortPostsByScore()) {
+            	posts.sort(new Comparator<Post>() {
+                    @Override
+                    public int compare(Post post1, Post post2) {
+                        return Integer.compare(post1.showScore(),post2.showScore());
+                    }
+                });
+            }
             Dictionary postNum = new Hashtable();
             int i = 1;
             for (Post post : posts) {
@@ -347,7 +356,9 @@ public class MainPageView {
                 System.out.println("off");
             }
             System.out.println("");
-            System.out.println("5.Change password\n");
+            System.out.println("5.Change password");
+            System.out.println("");
+            System.out.println("6.Change description\n");
             System.out.println("Enter number you want to change");
             String select = sc.nextLine();
             if (select.equals("1")){
@@ -374,6 +385,19 @@ public class MainPageView {
                     System.out.println("Current password is wrong\nPress Enter to go back");
                     sc.nextLine();
                 }
+            }
+            if (select.equals("6")) {
+            	System.out.println("Enter your new description");
+            	String des = "";
+            	String s = sc.nextLine();
+            	while (!s.equals("///")){
+            		if(s.equals("//")) {
+            			return;
+            		 }
+            		 des = des + s + "\n";
+            		 s = sc.nextLine();
+            	}
+            	user.editBio(des);
             }
             if (select.equals("//")){
                 return;

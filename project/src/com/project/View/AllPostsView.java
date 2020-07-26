@@ -17,7 +17,7 @@ public class AllPostsView {
                 posts.sort(new Comparator<Post>() {
                     @Override
                     public int compare(Post post1, Post post2) {
-                        return Integer.compare( post2.showScore(),post1.showScore());
+                        return Integer.compare(post1.showScore(),post2.showScore());
                     }
                 });
             }
@@ -69,7 +69,7 @@ public class AllPostsView {
                 posts.sort(new Comparator<Post>() {
                     @Override
                     public int compare(Post post1, Post post2) {
-                        return Integer.compare(post2.showScore(),post1.showScore());
+                        return Integer.compare(post1.showScore(),post2.showScore());
                     }
                 });
             }
@@ -116,7 +116,7 @@ public class AllPostsView {
                 posts.sort(new Comparator<Post>() {
                     @Override
                     public int compare(Post post1, Post post2) {
-                        return Integer.compare(post2.showScore(),post1.showScore());
+                        return Integer.compare(post1.showScore(),post2.showScore());
                     }
                 });
             }
@@ -130,6 +130,7 @@ public class AllPostsView {
                 System.out.println("#########################################################################");
                 System.out.println("Content : "+post.getContent());
                 System.out.println("#########################################################################");
+                System.out.println("Score : "+post.showScore()+"\n ----------------------");
                 System.out.println("* Post number : " + i + " *");
                 System.out.println("\n");
                 i++;
